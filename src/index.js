@@ -1,6 +1,5 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select';
-import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import Notiflix from 'notiflix';
 
 const catInfoDiv = document.querySelector('.cat-info');
