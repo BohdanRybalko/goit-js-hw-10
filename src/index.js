@@ -45,8 +45,8 @@ fetchBreeds()
     showError();
   });
 
-breedSelect.on('change', function () {
-  const selectedBreedId = this.data.selected();
+breedSelect.slim.addEventListener('change', function () {
+  const selectedBreedId = this.selected();
   if (selectedBreedId) {
     showLoader();
     fetchCatByBreed(selectedBreedId)
