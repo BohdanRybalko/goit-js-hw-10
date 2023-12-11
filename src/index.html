@@ -7,10 +7,16 @@
   </head>
   <body>
     <select class="breed-select"></select>
-    <p class="loader">Loading data, please wait...</p>
-    <p class="error">Oops! Something went wrong! Try reloading the page!</p>
-    <div class="cat-info"></div>
+    <p id="loader" class="loader" style="display: none;">Loading data, please wait...</p>
+    <p id="error" class="error" style="display: none;">Oops! Something went wrong! Try reloading the page!</p>
+     <div class="cat-info" style="display: none;">
+      <img id="catImage" alt="Cat Image">
+      <p id="catBreed"></p>
+      <p id="catDescription"></p>
+      <p id="catTemperament"></p>
+    </div>
 
     <script src="index.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>
