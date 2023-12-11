@@ -1,11 +1,12 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select';
+import 'slim-select/dist/slimselect.css';
 
 const catInfo = document.querySelector('.cat-info');
-const catImage = document.getElementById('cat-image');
-const breedName = document.getElementById('breed-name');
-const description = document.getElementById('description');
-const temperament = document.getElementById('temperament');
+// const catImage = document.getElementById('cat-image');
+// const breedName = document.getElementById('breed-name');
+// const description = document.getElementById('description');
+// const temperament = document.getElementById('temperament');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
@@ -34,7 +35,6 @@ const breedSelect = new SlimSelect({
   select: '#breed-select',
   placeholder: 'Select a breed',
 });
-
 fetchBreeds()
   .then(breeds => {
     breedSelect.setData(
@@ -45,8 +45,8 @@ fetchBreeds()
     showError();
   });
 
-breedSelect.slim.addEventListener('change', function () {
-  const selectedBreedId = this.selected();
+breedSelect.selectEl.addEventListener('change', function (event) {
+  const selectedBreedId = event.target.value;
   if (selectedBreedId) {
     showLoader();
     fetchCatByBreed(selectedBreedId)
@@ -63,11 +63,10 @@ breedSelect.slim.addEventListener('change', function () {
 });
 
 function displayCatInfo(cat) {
-  catInfo.style.display = 'block';
-  catImage.src = cat.url;
-  breedName.textContent = `Breed: ${cat.breeds[0].name}`;
-  description.textContent = `Description: ${cat.breeds[0].description}`;
-  temperament.textContent = `Temperament: ${cat.breeds[0].temperament}`;
+  catInfo.innerHTML = `<img id="cat-image" alt="Cat Image" src="${cat.url}" width="200px" />
+      <p id="breed-name">${cat.breeds[0].name}</p>
+      <p id="description">${cat.breeds[0].description}</p>
+      <p id="temperament">${cat.breeds[0].temperament}</p>`;
 }
 
 function showLoader() {
