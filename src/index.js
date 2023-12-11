@@ -1,6 +1,15 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
+import Notiflix from 'notiflix';
+
+const catInfoDiv = document.querySelector('.cat-info');
+const catImage = document.getElementById('catImage');
+const catBreed = document.getElementById('catBreed');
+const catDescription = document.getElementById('catDescription');
+const catTemperament = document.getElementById('catTemperament');
+const loader = document.getElementById('loader');
+const error = document.getElementById('error');
 
 axios.defaults.headers.common['x-api-key'] =
   'live_kJg81KMXtrfRvKqG7wd1EroCyyJXxU1vQ817RuyIzvG5Ou4AYf1idsnGq61UeN7m';
@@ -27,14 +36,6 @@ const breedSelect = new SlimSelect({
   select: '#breedSelect',
   placeholder: 'Select a breed',
 });
-
-const catInfoDiv = document.querySelector('.cat-info');
-const catImage = document.getElementById('catImage');
-const catBreed = document.getElementById('catBreed');
-const catDescription = document.getElementById('catDescription');
-const catTemperament = document.getElementById('catTemperament');
-const loader = document.getElementById('loader');
-const error = document.getElementById('error');
 
 breedSelect.setData(
   fetchBreeds().then(breeds =>
