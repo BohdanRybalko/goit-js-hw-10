@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homework 10</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/notiflix/2.7.0/notiflix.min.css"
+    />
   </head>
   <body>
     <select class="breed-select"></select>
-    <p id="loader" class="loader" style="display: none;">Loading data, please wait...</p>
-    <p id="error" class="error" style="display: none;">Oops! Something went wrong! Try reloading the page!</p>
-     <div class="cat-info" style="display: none;">
-      <img id="catImage" alt="Cat Image">
+    <p id="loader" class="loader" style="display: none">
+      Loading data, please wait...
+    </p>
+    <p id="error" class="error" style="display: none">
+      Oops! Something went wrong! Try reloading the page!
+    </p>
+    <div class="cat-info" style="display: none">
+      <img id="catImage" alt="Cat Image" />
       <p id="catBreed"></p>
       <p id="catDescription"></p>
       <p id="catTemperament"></p>
@@ -18,5 +26,6 @@
 
     <script src="index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notiflix/2.7.0/notiflix.min.js"></script>
   </body>
 </html>

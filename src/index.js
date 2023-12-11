@@ -1,9 +1,9 @@
 import axios from 'axios';
 import SlimSelect from 'slim-select';
-import Notiflix from 'notiflix';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
-axios.defaults.headers.common['x-api-key'] = 'your_api_key';
+axios.defaults.headers.common['x-api-key'] =
+  'live_kJg81KMXtrfRvKqG7wd1EroCyyJXxU1vQ817RuyIzvG5Ou4AYf1idsnGq61UeN7m';
 
 export function fetchBreeds() {
   return axios
