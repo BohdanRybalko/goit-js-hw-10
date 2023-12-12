@@ -6,17 +6,11 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
-let breedSelect;
-
-function initializeBreedSelect() {
-  breedSelect = new SlimSelect({
-    select: '#breed-select',
-    placeholder: 'Select a breed',
-  });
-}
-document.addEventListener('DOMContentLoaded', () => {
-  initializeBreedSelect();
+const breedSelect = new SlimSelect({
+  select: '#breed-select',
+  placeholder: 'Select a breed',
 });
+
 fetchBreeds()
   .then(breeds => {
     breedSelect.setData(
