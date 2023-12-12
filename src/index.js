@@ -7,16 +7,15 @@ const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 const breedSelectElement = document.querySelector('#breed-select');
 
-const breedSelect = new SlimSelect({
-  select: breedSelectElement,
-  placeholder: 'Select a breed',
-});
-
 fetchBreeds()
   .then(breeds => {
-    breedSelect.setData(
-      breeds.map(breed => ({ text: breed.name, value: breed.id }))
-    );
+    const options = breeds
+      .map(breed => `<option value="${breed.id}">${breed.name}</option>`)
+      .join('');
+    breedSelectElement.innerHTML = options;
+    new SlimSelect({
+      select: breedSelectElement,
+    });
   })
   .catch(() => {
     showError();
