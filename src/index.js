@@ -5,9 +5,10 @@ import { fetchBreeds, fetchCatByBreed } from './api';
 const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
+const breedSelectElement = document.querySelector('#breed-select');
 
 const breedSelect = new SlimSelect({
-  select: '#breed-select',
+  select: breedSelectElement,
   placeholder: 'Select a breed',
 });
 
@@ -21,7 +22,7 @@ fetchBreeds()
     showError();
   });
 
-breedSelect.selectEl.addEventListener('change', function (event) {
+breedSelectElement.addEventListener('change', function (event) {
   const selectedBreedId = event.target.value;
   if (selectedBreedId) {
     showLoader();
